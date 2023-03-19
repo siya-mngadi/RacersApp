@@ -1,0 +1,58 @@
+﻿@{ ViewBag.Title = "Contact"; }
+<h2>@ViewBag.Title</h2>
+@section Styles{
+
+    <style type="text/css">
+        td{
+            padding:8px 10px;
+        }
+
+    </style>
+    }
+
+<div class="row">
+    <div class="col-sm-4">
+        <img src="~/Images/contact.jpg" />
+    </div>
+
+    <div class="col-sm-4">
+        <p>
+            <address>
+                Maniac Racers Club<br />
+                Port Elizabeth, University Way<br />
+                <abbr title="Phone"></abbr>
+                021 558 1914
+            </address>
+
+        </p>
+    </div>
+
+    <div class="col-sm-4"> 
+            <form action="mailto:awesomeracers@gmail.com" method='post'>
+                <table>
+                    <tr>
+                        <td> <label for='name'>Name</label></td>
+                        <td> <input type="text" name='name' /><br /></td>
+                    </tr>
+                    <tr>
+                        <td><label for='email'>Email</label></td>
+                        <td> <input type="email" name='email' /><br /></td>
+                    </tr>
+                    <tr>
+                        <td><label for='message'>Message</label></td>
+                        <td><textarea name='message' style="width:255px"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td> <input type='submit' value='Send Message' class="btn btn-default btn-block btn-info" /> </td>
+                    </tr>
+                </table>
+
+                
+            </form>
+    </div>
+</div>
+
+
+
+

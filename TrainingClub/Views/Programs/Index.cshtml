@@ -1,0 +1,115 @@
+﻿@model IEnumerable<TrainingClub.ModelsDB.Program>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Programs</h2>
+<div class="btn btn-success" style="margin-bottom:10px">
+    <i class="fa fa-plus"></i>
+    @Html.ActionLink("Add New", "New", "Programs")
+
+</div>
+<table class="table table-striped table-responsive" id="programs">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Avaliable Space</th>
+            <th></th>
+        </tr>
+    </thead>
+
+</table>
+
+
+<link href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        var Popup, dataTable;
+        $(document).ready(function () {
+            dataTable = $("#programs").DataTable({
+                "ajax": {
+                    "url": "/Programs/GetData",
+                    "type": "GET",
+                    "datatype": "json"
+
+                },
+                "columns": [
+
+                    { "data": "ProgramName" },
+                    { "data": "ProgramFee" },
+                    { "data": "NumberOfStudents" },
+                    {
+                        "data": "Id", "render": function (data) {
+                            return "<a class='btn btn-default btn-sm' onclick=Edit(" + data+")><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete(" + data + ")><i class='fa fa-trash'></i> Delete</a>";
+                        },
+                        "orderable": false,
+                        "searchable":false,
+                        "width": "150px"
+                    }
+
+                ],
+                "language":"No Data found, Please click on <b>Add Program</b> Button"
+            });
+
+
+        });
+        function PopupForm(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+                .done(function (response) {
+                    formDiv.html(response);
+
+                    Popup = formDiv.dialog({
+                        autoOpen: true,
+                        resizable: false,
+                        title: 'Edit Program Details',
+                        height: 500,
+                        width: 700,
+                        close: function () {
+                            Popup.dialog('destroy').remove();
+                        }
+
+                    });
+                });
+        }
+
+         function Delete(id) {
+            if(confirm('Are You Sure to Delete this Program Record ?'))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete","Programs")/' + id,
+                    success: function (data) {
+                        if (data.success)
+                        {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+
+                });
+            }
+        }
+         function Edit(id) {
+            var url = '@Url.Action("Edit","Programs",new { id="_id_"})';
+            window.location.href = url.replace('_id_', id);
+        }
+
+    </script>
+
+
+}
+
