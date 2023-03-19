@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+@section Styles
+{
+    <style type="text/css">
+        .big-banner {
+            background-image: url('../../Images/Background-image.jpg');
+            background-repeat:no-repeat;
+            background-attachment:scroll;
+            background-position:center;
+           
+        }
+        .jumbotron {
+            height: 620px;
+        }
+        .jumbotron h1{
+            color:white;
+            border-left:2px solid lightblue;
+            font-size:40px;   
+           width:auto;
+        }
+        .lead {
+            color: white;
+            font-weight: bold;
+        }
+        .link{
+            color:white;
+         
+        }
+        .labelP{
+            background-color:#77A6F7;
+            color:#FFFFFF;
+            text-align:center;
+            width:100%;
+            padding-top:10px;
+            padding-bottom:15px;
+        }
+        .col-md-3:hover{
+            background-color:#D3E3FC;
+        }
+        .row{
+            margin-bottom:10px;
+        }
+    </style>
+}
+<div class="jumbotron big-banner">
+    <h1 class="link">LET THE ADRENALINE TAKE CONTROL</h1>
+    <p class="lead">Maniac Racers is one of the best training Clubs in the country,
+    producing Racers will world class skills behind the wheel.</p>
+    <p class="btn btn-default btn-lg ">@Html.ActionLink("Learn more", "Index", "Programs")&raquo</p>
+</div>
+<div class="row">
+    <div class="labelP">
+        <h1>Popular classes</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Teen Driving</h2>
+        <p>
+            Our classes set Teen up for success. From understanding automobile performance to grasping how drivers react,
+            every section of the training is developed to ensure students have confidence in the real-world.
+            With an impressive facility and highly experienced instructors, your day will be spent in an entertaining course of learning.
+        </p>
+        <p class="btn btn-default">@Html.ActionLink("Learn more", "Index", "Programs")&raquo</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Rally Cross</h2>
+        <p>
+            Rally is a form of motorsport that takes place on public or private roads with modified production or specially built road-legal cars.
+            It is distinguished by not running on a circuit,
+            but instead in a point-to-point format in which participants and their co-drivers drive between set control points,
+            leaving at regular intervals from one or more start points. Want to be a Rally Racer than Book our program now!
+        </p>
+        <p class="btn btn-default">@Html.ActionLink("Learn more", "Index", "Programs")&raquo</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Time Trials</h2>
+        <p>
+            Professional Driving that will land you that top notch job you being eyeing for,
+            We offer best prices and we will connect you with our partnership companies.
+            The program Comes with time constraints to test your thinking capabilities and responses.
+        </p>
+        <p class="btn btn-default">@Html.ActionLink("Learn more", "Index", "Programs")&raquo</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Auto Cross</h2>
+        <p>
+            Autocross is a timed competition in which drivers navigate one at a time through a defined course on either a sealed or an unsealed surface.
+            It is a form of motorsports that emphasizes safe competition and active participation
+        </p>
+        <p class="btn btn-default">@Html.ActionLink("Learn more", "Index", "Programs")&raquo</p>
+    </div>
+</div>

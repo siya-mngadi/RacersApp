@@ -1,0 +1,61 @@
+﻿@model TrainingClub.Models.ProgramViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles{
+    
+    <style type="text/css">
+
+        .dl-horizontal dt {
+            margin-bottom: 25px;
+            border-right:3px solid lightgreen;
+            padding-right:8px;
+        }
+
+
+    </style>
+ }
+<h2>Program Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal media-middle">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgramName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgramName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgramFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgramFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfStudents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfStudents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descirption)
+        </dt>
+
+        <dd>
+            @Html.DisplayTextFor(model => model.Descirption)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

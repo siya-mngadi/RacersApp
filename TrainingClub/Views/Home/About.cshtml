@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title</h2>
+@section Styles{
+    <style type="text/css">
+        .containerImage {
+            width: 100%;
+            overflow: hidden;
+        }
+        .column {
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .column1 {
+            margin-top: 8px;
+            overflow:hidden;
+        }
+        .rowContent {
+            display:inline-block;
+            width:100%;
+        }
+        #list {
+            margin-top: 40px;
+        }
+
+
+    </style>
+}
+
+
+<div class="containerImage">
+    <div class="rowContent">
+        <div class="column">
+            <h2>Assumption</h2>
+            <img src="~/Images/Assume.jpg" />
+            <ul id="list">
+                <li>Program Names are also Unique</li>
+                <li></li>
+                <li></li>
+            </ul>
+
+
+        </div>
+        <div class="column1">
+            <h2>Additional functionality</h2>
+            <img src="~/Images/Fucntionality.png" />
+            <ul id="list">
+                <li>Search and sort Programs and Bookings using datatables</li>
+                <li>Increase and decrease the number of avaliable space for each program accordingly</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</div>
